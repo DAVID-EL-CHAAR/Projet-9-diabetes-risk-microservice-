@@ -1,0 +1,11 @@
+server:
+  port: 8084
+
+
+#microservice:
+  #patient-service-url: ${PATIENT_SERVICE_URL:http://localhost:8080/patients}
+  #note-service-url: ${NOTE_SERVICE_URL:http://localhost:8083/notes}
+ 
+microservice:
+  patient-service-url: ${PATIENT_SERVICE_URL:http://patient-service:8080/patients}
+  note-service-url: ${NOTE_SERVICE_URL:http://note-service:8083/notes}
