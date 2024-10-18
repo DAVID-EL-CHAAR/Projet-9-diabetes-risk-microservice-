@@ -23,4 +23,4 @@ COPY --from=build /app/target/diabetes-risk-microservice-0.0.1-SNAPSHOT.jar /app
 EXPOSE 8084
 
 # Lancer l'application
-ENTRYPOINT ["java", "-jar", "diabetes-risk-microservice.jar"]
+ENTRYPOINT ["java", "-jar", "diabetes-risk-microservice.jar","--spring.profiles.active=docker"]
