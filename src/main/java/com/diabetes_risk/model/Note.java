@@ -1,11 +1,11 @@
 package com.diabetes_risk.model;
 
 public class Note {
-    private String id;           // Identifiant généré par MongoDB
-    private String patientId;     // ID du patient auquel la note est associée
-    private String patientName;   // Nom du patient
-    private String noteContent;   // Contenu de la note
-    private String createdAt;     // Date de création de la note
+    private String id;          
+    private String patientId;    
+    private String patientName;  
+    private String noteContent;   
+    private String createdAt;    
 
     // Getters et Setters
 

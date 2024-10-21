@@ -32,50 +32,7 @@ public class DiabetesRiskService {
         // Appliquer la logique d'évaluation du risque de diabète
         return evaluateDiabetesRisk(patient, notes);
     }
-/*
-    // Méthode d'évaluation du risque (inchangée)
-    private String evaluateDiabetesRisk(Patient patient, List<Note> notes) {
-        // Liste des déclencheurs
-        List<String> triggers = Arrays.asList("Hémoglobine A1C", "Microalbumine", "Taille", "Poids", 
-            "Fumeur", "Fumeuse", "Anormal", "Cholestérol", "Vertiges", "Rechute", "Réaction", "Anticorps");
-
-        int triggerCount = 0;
-
-        // Compter le nombre de déclencheurs dans les notes
-        for (Note note : notes) {
-            for (String trigger : triggers) {
-                if (note.getNoteContent().contains(trigger)) {
-                    triggerCount++;
-                }
-            }
-        }
-
-        // Calculer l'âge du patient
-        int age = calculateAge(patient.getBirthDate());
-
-        // Appliquer les règles pour évaluer le risque de diabète
-        if (triggerCount == 0) {
-            return "None";
-        } else if (triggerCount >= 2 && triggerCount <= 5 && age > 30) {
-            return "Borderline";
-        } else if (age < 30 && patient.getGender().equals("M") && triggerCount >= 3) {
-            return "In Danger";
-        } else if (age < 30 && patient.getGender().equals("F") && triggerCount >= 4) {
-            return "In Danger";
-        } else if (age > 30 && triggerCount >= 6 && triggerCount <= 7) {
-            return "In Danger";
-        } else if (age < 30 && patient.getGender().equals("M") && triggerCount >= 5) {
-            return "Early Onset";
-        } else if (age < 30 && patient.getGender().equals("F") && triggerCount >= 7) {
-            return "Early Onset";
-        } else if (age > 30 && triggerCount >= 8) {
-            return "Early Onset";
-        }
-
-        return "None";  // Par défaut, si aucune règle n'est respectée
-    } */
-    
-    /*
+  
     private String evaluateDiabetesRisk(Patient patient, List<Note> notes) {
         // Liste des déclencheurs
         List<String> triggers = Arrays.asList("Hémoglobine A1C", "Microalbumine", "Taille", "Poids", 
@@ -85,6 +42,8 @@ public class DiabetesRiskService {
 
         // Compter le nombre de déclencheurs dans les notes (en ignorant la casse)
         for (Note note : notes) {
+        	//if (note == null || note.getNoteContent() == null || note.getNoteContent().isEmpty()) continue;  // Ignorer les notes vides
+        	//if (triggerCount > 7) break;  green code 
             String noteContent = note.getNoteContent().toLowerCase(); // Convertir en minuscule pour la comparaison
             for (String trigger : triggers) {
                 if (noteContent.contains(trigger.toLowerCase())) {
@@ -92,49 +51,7 @@ public class DiabetesRiskService {
                 }
             }
         }
-
-        // Calculer l'âge du patient
-        int age = calculateAge(patient.getBirthDate());
-
-        // Appliquer les règles pour évaluer le risque de diabète
-        if (triggerCount == 0) {
-            return "None";
-        } else if (triggerCount >= 2 && triggerCount <= 5 && age > 30) {
-            return "Borderline";
-        } else if (age < 30 && patient.getGender().equalsIgnoreCase("M") && triggerCount >= 3) {
-            return "In Danger";
-        } else if (age < 30 && patient.getGender().equalsIgnoreCase("F") && triggerCount >= 4) {
-            return "In Danger";
-        } else if (age > 30 && triggerCount >= 6 && triggerCount <= 7) {
-            return "In Danger";
-        } else if (age < 30 && patient.getGender().equalsIgnoreCase("M") && triggerCount >= 5) {
-            return "Early Onset";
-        } else if (age < 30 && patient.getGender().equalsIgnoreCase("F") && triggerCount >= 7) {
-            return "Early Onset";
-        } else if (age > 30 && triggerCount >= 8) {
-            return "Early Onset";
-        }
-
-        return "None";  // Par défaut, si aucune règle n'est respectée
-    }
-        */
-    
-    private String evaluateDiabetesRisk(Patient patient, List<Note> notes) {
-        // Liste des déclencheurs
-        List<String> triggers = Arrays.asList("Hémoglobine A1C", "Microalbumine", "Taille", "Poids", 
-            "Fumeur", "Fumeuse", "Anormal", "Cholestérol", "Vertiges", "Rechute", "Réaction", "Anticorps");
-
-        int triggerCount = 0;
-
-        // Compter le nombre de déclencheurs dans les notes (en ignorant la casse)
-        for (Note note : notes) {
-            String noteContent = note.getNoteContent().toLowerCase(); // Convertir en minuscule pour la comparaison
-            for (String trigger : triggers) {
-                if (noteContent.contains(trigger.toLowerCase())) {
-                    triggerCount++;
-                }
-            }
-        }
+        
 
         // Calculer l'âge du patient
         int age = calculateAge(patient.getBirthDate());
