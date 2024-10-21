@@ -19,4 +19,4 @@ Pour démarrer avec le Diabetes Risk Service, suivez les étapes ci-dessous :
 ### 1. Cloner le dépôt
 
 ```bash
-git clone https://github.com/votreorganisation/health-risk-service.git
+git clone https://github.com/DAVID-EL-CHAAR/Projet-9-diabetes-risk-microservice.git
